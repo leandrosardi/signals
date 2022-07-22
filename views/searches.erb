@@ -1,0 +1,59 @@
+<%
+from_row = 1
+to_row = 25
+total_rows = 48
+page_number = 1
+total_pages = 2
+%>
+
+<!-- NavBar -->
+<div class="mynavbar mysticky">
+    <section class="row-fluid">	
+        <div class="span6">
+            <%=nav2("Signals", "/signals", "Searches")%>
+        </div>
+
+        <div class="span6" align="right" style="text-align: right;alignment-adjust: right; margin-left: 0;">
+            <button id="update" name="update" data-rows-group-id="users" class="btn btn-blue btn-medium" type="button" title="Save Fields of Selected Users">
+                <i class="icon-plus"></i>
+                New Search
+            </button>
+            <button id="remove" name="remove" data-rows-group-id="users" class="btn btn-green btn-medium" type="button" title="Delete Selected Users">
+                <i class="icon-gift"></i>
+                Buy Searches
+            </button>
+        </div>
+
+    </section>
+</div>
+<!-- Single Panel -->
+<section class="row-fluid">
+	<div class="span12 box">
+        <p><b>Records:</b> <%=from_row.to_label%> to <%=to_row.to_label%> <b>of</b> <%=total_rows.to_label%></p>
+
+        <table class="table table-striped" style="table-layout: fixed; width: 100%;">
+            <thead>
+                <th style="width:8px;"><!-- social network --></th>
+                <th style="width:55px;">Type</th>
+                <th style="width:auto;">Criteria</th>
+                <th style="width:90px;text-align:right;">Recent<br/>Results <i class='icon-question-sign' title='Signals in last 24 hours.'></i></th>
+                <th style="width:90px;text-align:right;">New<br/>Leads <i class='icon-question-sign' title='How many signals are from leads that I have never seen before.'></i></th>
+                <th style="width:90px;text-align:right;">All Time<br/>Results</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="fix"><i class='icon-facebook'></i></td>
+                    <td class="fix"><span class='badge badge-blue'>posts</span></td>
+                    <td class="fix">"Leads Generation"</td>
+                    <td class="fix" style="text-align:right;"><a href='#'>58</a></td>
+                    <td class="fix" style="text-align:right;"><a href='#'>52</a></td>
+                    <td class="fix" style="text-align:right;"><a href='#'>1,258</a></td>
+                </tr>
+            </tbody>
+        </table>
+		<div class="pagination"></div>
+		<script>
+			drawPagination($(".pagination"), <%=page_number%>, <%=total_pages%>);
+		</script>
+	</div>
+</section>
