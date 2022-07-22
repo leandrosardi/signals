@@ -1,0 +1,51 @@
+<%
+from_row = 1
+to_row = 25
+total_rows = 48
+page_number = 1
+total_pages = 2
+%>
+
+<!-- NavBar -->
+<div class="mynavbar mysticky">
+    <section class="row-fluid">	
+        <div class="span6">
+            <%=nav2("Signals", "/signals", "Results")%>
+        </div>
+    </section>
+</div>
+<!-- Single Panel -->
+<section class="row-fluid">
+	<div class="span12 box">
+        <p><b>Records:</b> <%=from_row.to_label%> to <%=to_row.to_label%> <b>of</b> <%=total_rows.to_label%></p>
+
+        <table class="table table-striped" style="table-layout: fixed; width: 100%;">
+            <thead>
+                <th style="width:32px;"><!-- picture --></th>
+                <th style="width:8px;"><!-- social network --></th>
+                <th style="width:55px;">Type</th>
+                <th style="width:75px;">Date</th>
+                <th style="width:110px;">Name</th>
+                <th style="width:110px;">Criteria</th>
+                <th style="width:auto;">Content</th>
+                <th style="width:75px;text-align:right;"><!-- discovered lead? --></th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="fix" style='vertical-align:middle;'><a href='#' target='_window'><img width='32px' height='32px' src='https://avatars.githubusercontent.com/u/55877846?v=4' style='border-radius:32px;' alt'Leandro Sardi' /></a></td>
+                    <td class="fix" style='vertical-align:middle;'><a href='#' target='_window'><i class='icon-facebook'></a></i></td>
+                    <td class="fix" style='vertical-align:middle;'><span class='badge badge-blue'>posts</span></td>
+                    <td class="fix" style='vertical-align:middle;'>2022-07-22</td>
+                    <td class="fix" style='vertical-align:middle;'><a href='#' target='_window'>Leandro D. Sardi</a></td>
+                    <td class="fix" style='vertical-align:middle;'><a href='#' target='_window'>"Leads Generation"</a></td>
+                    <td class="fix" style='vertical-align:middle;'>How big tech companies are generating leads in a consistant & predictable way. Click here to access my new seminar.</td>
+                    <td class="fix" style='vertical-align:middle;'><span class='badge badge-green'>discovered</span></td>
+                </tr>
+            </tbody>
+        </table>
+		<div class="pagination"></div>
+		<script>
+			drawPagination($(".pagination"), <%=page_number%>, <%=total_pages%>);
+		</script>
+	</div>
+</section>
